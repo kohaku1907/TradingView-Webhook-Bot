@@ -35,7 +35,7 @@ def webhook():
                     print("[X]", get_timestamp(), "Alert Received & Refused! (Wrong Key)")
                     return "Refused alert", 400
             else:
-                data["msg"] = request.get_data(as_text=True)
+                data = {"msg": request.get_data(as_text=True)}
                 send_alert(data)
                 return "Sent alert", 200
 
